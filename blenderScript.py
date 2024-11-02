@@ -6,8 +6,8 @@ print("starting")
 
 # basepath = "/Users/leejr/work/EDM4HEP_to_Blender/InputsFromFede_241101/muonGun_pT_50_250_reco.edm4hep.root"
 # basepath = "/Users/leejr/work/EDM4HEP_to_Blender/InputsFromFede_241101/neutronGun_E_50_250_reco.edm4hep.root"
-# basepath = "/Users/leejr/work/EDM4HEP_to_Blender/InputsFromFede_241101/photonGun_E_50_250_reco.edm4hep.root"
-basepath = "/Users/leejr/work/EDM4HEP_to_Blender/InputsFromFede_241101/nuGun_digi_v0A.edm4hep.root"
+basepath = "/Users/leejr/work/EDM4HEP_to_Blender/InputsFromFede_241101/photonGun_E_50_250_reco.edm4hep.root"
+# basepath = "/Users/leejr/work/EDM4HEP_to_Blender/InputsFromFede_241101/nuGun_digi_v0A.edm4hep.root"
 
 # List of (file_path, scaling_factor) for each CSV file
 csv_files = [
@@ -36,7 +36,10 @@ for csv_file_path, relative_scale in csv_files:
     # Open the CSV file and read each line
     with open(csv_file_path, newline='') as csvfile:
         reader = csv.reader(csvfile)
-        next(reader)  # Skip the header row if present
+        try:
+            next(reader)  # Skip the header row if present
+        except:
+            continue
         for irow,row in enumerate(reader):
             if irow%100==0:
                 print(irow)

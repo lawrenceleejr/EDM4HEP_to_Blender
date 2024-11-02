@@ -10,7 +10,7 @@ parser.add_argument("-f", type=str, help="Path to the ROOT file")
 parser.add_argument("-t", type=str, default="events", help="Name of the TTree in the ROOT file (default: 'myTree')")
 args = parser.parse_args()
 
-ievent = 0
+ievent = 2
 # used event 0 for muon
 # used event 2 for neutron
 # 0 for photon
